@@ -1,0 +1,46 @@
+#include <iostream>
+const int MAX_LEN = 20;
+void arrInput(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cin >> arr[i];
+	}
+}
+void arrAtoB(int arr[], int a, int b)
+{
+	if (a > b)
+	{
+		throw "This arrey doesn't exist.";
+	}
+	int j = 0;
+	for (int i = a; i <= b; i++)
+	{
+
+		arr[j] = i;
+		j++;
+	}
+}
+void printArr(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << arr[i] << ' ';
+	}
+}
+int main()
+{
+	int arr[MAX_LEN];
+	int a, b;
+	std::cin >> a >> b;
+	try
+	{
+		arrAtoB(arr, a, b);
+	}
+	catch (const char* e)
+	{
+		std::cout << e;
+	}
+	int count = b - a + 1;
+	printArr(count, arr);
+}
