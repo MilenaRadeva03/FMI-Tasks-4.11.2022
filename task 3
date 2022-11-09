@@ -1,0 +1,34 @@
+#include <iostream>
+const int MAX_LEN = 20;
+void arrInput(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cin >> arr[i];
+	}
+}
+void reversed_Arr(int n, int arr[])
+{
+	for (int i = 0; i < n / 2; i++)
+	{
+		int c = arr[n - i - 1];
+		arr[n - i - 1] = arr[i];
+		arr[i] = c;
+	}
+}
+void printArr(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << arr[i] << ' ';
+	}
+}
+int main()
+{
+	int arr[MAX_LEN];
+	int n;
+	std::cin >> n;
+	arrInput(n, arr);
+	reversed_Arr(n, arr);
+	printArr(n, arr);
+}
