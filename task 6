@@ -1,0 +1,80 @@
+#include <iostream>
+const int MAX_LEN = 20;
+void arrInput(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cin >> arr[i];
+	}
+}
+void arrSort(int n, int arr[])
+{
+	int minIndex;
+	int minNumber;
+	for (int i = 0; i < n; i++)
+	{
+		minIndex = i;
+		minNumber = arr[i];
+		for (int j = i + 1; j < n; j++)
+		{
+			if (arr[j] < minNumber)
+			{
+				minIndex = j;
+				minNumber = arr[j];
+			}
+		}
+		arr[minIndex] = arr[i];
+		arr[i] = minNumber;
+	}
+}
+bool searchInArr(int n, int arr[], int num)
+{
+	arrSort(n, arr);
+	int mid = arr[n / 2];
+	int midIndex = n / 2;
+	if (num < mid)
+	{
+		for (int i = 0; i < midIndex; i++)
+		{
+			if (num == arr[i])
+				return true;
+		}
+	}
+	else
+	{
+		for (int i = midIndex; i < n; i++)
+		{
+			if (num == arr[i])
+				return true;
+		}
+	}
+	return false;
+}
+bool ex6(int n, int arr[], int a, int b)
+{
+	for (int i = a; i <= b;i++)
+	{
+		if (!searchInArr(n, arr, i))
+			return false;
+	}
+	return true;
+}
+void printArr(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << arr[i] << ' ';
+	}
+}
+int main()
+{
+	int arr[MAX_LEN];
+	int n;
+	std::cin >> n;
+	int a, b;
+	arrInput(n, arr);
+	do {
+		std::cin >> a >> b;
+	} while (a > b);
+	std::cout << std::boolalpha << ex6(n, arr, a, b);
+}
