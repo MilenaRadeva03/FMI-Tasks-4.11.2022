@@ -1,0 +1,53 @@
+int main()
+{
+int n;
+	 std::cin >> n;
+	 int num = n;
+	 for (int i = 1; i < n; i++)
+	 {
+		 for (int j = 1; j <= i - 1; j++)
+		 {
+			 std::cout << ' ';
+		 }
+		 for (int k = 1; k <= n - i + 1; k++)
+		 {
+			 if (k == 1 || k == n - i+1)
+			 {
+				 std::cout << i<<' ';
+			 }
+			 else
+			 {
+				 int spaces = 1;
+				 for (int m = 2; m <= spaces+2; m++)
+				 {
+					 std::cout << ' ';
+				 }
+			 }
+		 }
+		 std::cout << ' ' << std::endl;
+	 }
+	 for (int i = 1; i <= n;i++)
+	 {
+		 for (int j = 1; j <= n - i; j++)
+		 {
+			 std::cout << ' ';
+		 }
+		 for (int k = 1; k <= i; k++)
+		 {
+			 if (k == 1 || k == i)
+			 {
+				 std::cout << num << ' ';
+			 }
+			 else
+			 {
+				 int spaces = 1;
+				 for (int m = 2; m <= spaces + 2; m++)
+				 {
+					 std::cout << ' ';
+				 }
+			 }
+		 }
+		 std::cout << std::endl;
+		 num--;
+	 }
+ }
