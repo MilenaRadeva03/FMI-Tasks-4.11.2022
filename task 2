@@ -1,0 +1,64 @@
+#include <iostream>
+const int MAX_LEN = 20;
+void arrInput(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		std::cin >> arr[i];
+	}
+}
+void arrSort(int n, int arr[])
+{
+	int minIndex;
+	int minNumber;
+	for (int i = 0; i < n; i++)
+	{
+		minIndex = i;
+		minNumber = arr[i];
+		for (int j = i + 1; j < n; j++)
+		{
+			if (arr[j] < minNumber)
+			{
+				minIndex = j;
+				minNumber = arr[j];
+			}
+		}
+		arr[minIndex] = arr[i];
+		arr[i] = minNumber;
+	}
+}
+int sumArr(int n, int arr[])
+{
+	int sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+int multArr(int n, int arr[])
+{
+	int mult = 1;
+	for (int i = 0; i < n; i++)
+	{
+		mult *= arr[i];
+	}
+	return mult;
+}
+double averageArr(int n, int arr[])
+{
+	int sum = sumArr(n, arr);
+	return ((double)sum / n);
+}
+int main()
+{
+	int arr[MAX_LEN];
+	int n;
+	std::cin >> n;
+	arrInput(n, arr);
+	std::cout << arr[0] << std::endl;
+	std::cout << arr[n - 1] << std::endl;
+	std::cout << sumArr(n, arr) << std::endl;
+	std::cout << multArr(n, arr) << std::endl;
+	std::cout << averageArr(n, arr) << std::endl;
+}
